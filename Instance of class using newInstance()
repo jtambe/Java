@@ -1,0 +1,43 @@
+/*
+Instance of class using newInstance() and getClass() methods
+*/
+
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+public static void main(String[] args) {
+
+     try {
+        // date object
+        Date d = new Date();
+        Class cls = d.getClass();
+        System.out.println("Time = " + d.toString());
+
+        /* creates a new instance of the class represented by this 
+        Class object cls */
+        Object obj = e.newInstance();
+        System.out.println("Time = " + obj);
+     }
+     catch(InstantiationException e) {
+        System.out.println(e.toString());
+     }
+     catch(IllegalAccessException e) {
+        System.out.println(e.toString());
+     }
+   }
+}
+
+
+/*
+output
+
+Time = Sun Feb 07 02:28:11 GMT 2016
+Time = Sun Feb 07 02:28:11 GMT 2016
+
+*/
