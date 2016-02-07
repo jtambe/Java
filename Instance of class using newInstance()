@@ -1,5 +1,12 @@
 /*
 Instance of class using newInstance() and getClass() methods
+
+There are 4 ways to create an object in java. 
+They are:
+1. By new keyword
+2. By newInstance() method
+3. By clone() method
+4. By factory method etc.
 */
 
 /* package codechef; // don't place package name! */
