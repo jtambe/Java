@@ -1,0 +1,61 @@
+import java.util.*;
+
+public class PalindromeNumber{  
+ public static void main(String args[]){  
+  int r,temp;    
+  int sum = 0;
+  int n=834438;//It is the number variable to be checked for palindrome  
+  
+  temp=n;    
+  while(n>0){    
+   r=n%10;  //getting remainder
+   System.out.println("r : " + r);
+   System.out.println("Sum : " + sum);
+   System.out.println("Sum*10 : " + sum*10);
+   sum=(sum*10)+r;
+   System.out.println("Sum After Addition : " + sum);
+   System.out.println();
+   n=n/10;    
+  }    
+  if(temp==sum)    
+   System.out.println("palindrome number ");    
+  else    
+   System.out.println("not palindrome");    
+}  
+}  
+
+/*
+output
+
+r : 8
+Sum : 0
+Sum*10 : 0
+Sum After Addition : 8
+
+r : 3
+Sum : 8
+Sum*10 : 80
+Sum After Addition : 83
+
+r : 4
+Sum : 83
+Sum*10 : 830
+Sum After Addition : 834
+
+r : 4
+Sum : 834
+Sum*10 : 8340
+Sum After Addition : 8344
+
+r : 3
+Sum : 8344
+Sum*10 : 83440
+Sum After Addition : 83443
+
+r : 8
+Sum : 83443
+Sum*10 : 834430
+Sum After Addition : 834438
+
+palindrome number 
+*/
