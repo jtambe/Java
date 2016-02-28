@@ -1,0 +1,66 @@
+import java.io.*;
+import java.util.*;
+import java.util.Collections; 
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        int size = in.nextInt();
+        
+        ArrayList <String> stringArray =  new ArrayList<String>();
+        
+        int i = 0;
+        int j = size;
+        int length = input.length();
+        
+        while(i < length){
+            
+            //System.out.println(i+2);
+            //System.out.println(length);
+            
+            if( i+2 < length){
+                String addition = input;
+                stringArray.add(addition.substring(i,j));                
+                //System.out.println(addition.substring(i,j));
+            }
+            else{
+                //String addition = input;
+                //stringArray.add(addition.substring(i));                                
+                //System.out.println(addition.substring(i));
+            }
+            
+            i++;
+            j++;
+        }
+        
+        String max = stringArray.get(0);
+        String min = stringArray.get(0);
+        
+        for(String str : stringArray){
+            //System.out.println(str);                
+        }
+        
+        
+        //System.out.println(min);
+        //System.out.println(max);
+        
+        for(String str : stringArray){
+            
+            if(str.compareTo(max) > 0){
+                max = str;
+            }
+            
+            if(str.compareTo(min) < 0){
+                min = str;
+            }
+            
+        }
+        
+        System.out.println(min);
+        System.out.println(max);
+    }
+}
