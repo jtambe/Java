@@ -1,0 +1,62 @@
+/* Testing if two strings contain exact same letters in any order*/
+
+import java.io.*;
+import java.util.*;
+import java.util.Collections.*;
+import java.util.ArrayList;
+import java.lang.*;
+
+public class Solution {
+
+   static boolean isAnagram(String A, String B) {
+       //Complete the function
+       
+       char[] arrayA = A.toCharArray();
+       char[] arrayB = B.toCharArray();
+       
+       ArrayList<Character> AA = new ArrayList <Character>();
+       for(char ch :arrayA){
+           AA.add(ch);          
+       }              
+       ArrayList<Character> AB = new ArrayList <Character>();
+       for(char ch :arrayB){
+           AB.add(ch);
+       }
+       
+       
+       while(!AA.isEmpty()){
+           int i = 0;
+           Character checkA = AA.get(i);           
+           if( AB.contains(Character.toUpperCase(checkA)) || AB.contains(Character.toLowerCase(checkA))){
+               int index = AB.indexOf(Character.toUpperCase(checkA));
+               if(index == -1){ // reutrns -1 if it was not found
+                   index = AB.indexOf(Character.toLowerCase(checkA));
+               }
+               AB.remove(index);
+               AA.remove(i);
+           }
+           else{
+               return false;
+           }           
+       }
+       
+       if(AA.isEmpty() && AB.isEmpty()){
+           return true;
+       }
+       else{
+           return false;
+       }
+       
+   
+   }
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        boolean ret=isAnagram(A,B);
+        if(ret)System.out.println("Anagrams");
+        else System.out.println("Not Anagrams");
+        
+    }
+}
