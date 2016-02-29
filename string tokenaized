@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+import java.util.Collections.*;
+import java.lang.*;
+
+
+
+    public class Solution {
+
+      
+        public static void main(String[] args) 
+        {
+
+      
+          Scanner scan = new Scanner(System.in);
+          String s=scan.nextLine();
+        //Complete the code
+            
+            String [] tokens = s.split("[\\s+?\\s+!\\s+,\\s+\\.\\s+_\\s+'\\s+@\\s+ \\s+]");                      
+             
+            //System.out.println(tokens.length);
+            int length = tokens.length;
+            
+            for(int i =0; i < length; i++){
+                
+                if(tokens[i] == "" || tokens[i] == null || tokens[i] ==  " " ){
+                    
+                    for(int j = i; j < length -1; j++){
+                        tokens[j] = tokens[j+1];                        
+                    }
+                    length--;
+                }
+                
+            }
+            
+            System.out.println(length);
+                
+            for(String str : tokens){
+                System.out.println(str);    
+            }
+
+        }
+    }
