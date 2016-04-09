@@ -1,0 +1,70 @@
+import java.util.Scanner;
+public class Problem1 {
+	
+boolean[] arr = new boolean[10];
+
+public void arrInitialize(){	
+	for(int i = 0; i < 10 ; i++){
+		arr[i] = false;		
+	}	
+}
+
+public boolean areAllTrue(){
+	for(int i = 0 ; i < 10; i++){
+		if(arr[i] == false){
+			return false;
+		}
+	}
+	return true;
+}
+
+public int findIterations(int input,int numberToOperate, int iteration){
+	
+	int iterations = iteration;
+	int number = numberToOperate;
+	while(number > 0){
+		if(arr[number%10] != true){
+			arr[number%10] = true;
+		}
+		number = number/10;
+	}
+	if(areAllTrue()){
+		return numberToOperate;	
+	}
+	else{
+		return findIterations(input, input*(iterations+1), iterations+1);
+	}
+	
+}
+
+
+public static void main(String[] args){
+	
+	try{
+		Scanner in = new Scanner(System.in);		
+		int testsCount = in.nextInt();
+		for(int i = 0 ; i < testsCount ; i++){
+			
+			//System.out.println("give input number");
+			int input = in.nextInt();
+			if(input == 0){
+				System.out.println("Case #" + (i+1) + " : INSOMNIA" );
+			}
+			else{
+
+				Problem1 obj = new Problem1();
+				obj.arrInitialize();
+				int output = obj.findIterations(input,input, 1);
+				System.out.println("Case #" + (i+1) + " : " + output );
+			}			
+		}
+	}
+	catch(Exception e){
+		System.out.println(e);
+	}
+	
+}	
+	
+}
+
+
